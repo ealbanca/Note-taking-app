@@ -23,6 +23,14 @@ titleInput.id = 'title';
 titleInput.placeholder = 'Enter a Note Title';
 form.appendChild(titleInput);
 
+// Create a note input
+const note = document.createElement('textarea');
+note.name = 'note';
+note.id = 'note';
+note.cols = 30;
+note.rows = 10;
+form.appendChild(note);
+
 //Append form to form container
 formContainer.appendChild(form);
 
