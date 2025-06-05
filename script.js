@@ -3,7 +3,7 @@ var modalContainer = document.createElement('div');
 modalContainer.className = 'modal';
 //button inside the modal to close it
 var closeButton = document.createElement('button');
-closeButton.textContent = '&times;';
+closeButton.textContent = '✕';
 closeButton.addEventListener('click', function () {
     modalContainer.style.display = 'none';
 });
