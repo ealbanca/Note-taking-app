@@ -2,16 +2,16 @@
 const formContainer = document.createElement('div');
 formContainer.className = 'form-container';
 
-
-//Create title of Note Taking App
+// Create title of Note Taking App
 const heading = document.createElement('h1');
 heading.textContent = 'Note Taking App';
 formContainer.appendChild(heading);
 
-//Add a ne note title
+// Add a new note title
 const noteTitle = document.createElement('h3');
-noteTitle.textContent = 'Add a New Note ';
+noteTitle.textContent = 'Add a New Note';
 formContainer.appendChild(noteTitle);
+
 // Create a form element
 const form = document.createElement('form');
 form.className = 'note-form';
@@ -31,7 +31,7 @@ note.cols = 30;
 note.rows = 10;
 form.appendChild(note);
 
-//Append form to form container
+// Append form to form container
 formContainer.appendChild(form);
 
 // Add form container to document body
