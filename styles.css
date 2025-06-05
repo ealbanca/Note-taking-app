@@ -41,3 +41,25 @@ body {
     color: var(--text-color);
     margin-bottom: 1.5rem;
 }
+
+.message {
+    margin: 1rem 0 1rem;
+    color: white;
+    padding: 1rem;
+    text-align: center;
+}
+
+.message.success {
+    background-color: var(--secondary-color);
+    color: white;
+}
+
+.message.error {
+    background-color: #e74c3c;
+    color: white;
+}
+
+.message.remove {
+    background-color: #f39c12;
+    color: white;
+}
