@@ -54,5 +54,6 @@ form.appendChild(note);
 // Append form to form container
 formContainer.appendChild(form);
 
-// Add form container to document body
+// Add modal and form container to document body
+document.body.appendChild(modalContainer);
 document.body.appendChild(formContainer);
