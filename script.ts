@@ -1,9 +1,12 @@
 // Create a modal container (for the pop up window when clicking on a existing note)
 const modalContainer = document.createElement('div');
-modalContainer.className = 'modal-container';
+modalContainer.className = 'modal';
 //button inside the modal to close it
 const closeButton = document.createElement('button');
-closeButton.textContent = '&times';
+closeButton.textContent = '&times;';
+closeButton.addEventListener('click', () => {
+    modalContainer.style.display = 'none';
+});
 //title of the modal
 const modalTitle = document.createElement('h2');
 modalTitle.className = 'modal-title';
