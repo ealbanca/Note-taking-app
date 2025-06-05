@@ -47,6 +47,10 @@ note.placeholder = 'Write your note here...';
 form.appendChild(note);
 // Append form to form container
 formContainer.appendChild(form);
-// Add modal and form container to document body
+//Create a note container to display existing notes
+var noteContainer = document.createElement('div');
+noteContainer.className = 'note-container';
+// Add modal, form container, and note container to document body
 document.body.appendChild(modalContainer);
 document.body.appendChild(formContainer);
+document.body.appendChild(noteContainer);
