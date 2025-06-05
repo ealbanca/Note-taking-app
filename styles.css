@@ -9,6 +9,35 @@
     --primary-color: #4a90e2;
     --secondary-color: #50e3c2;
     --background-color: #f5f7fa;
-    --text-color: #333333;
+    --text-color: #525050;
     --border-color: #e0e0e0;
+}
+
+body {
+    display: grid;
+    place-items: center;
+    padding: 3rem;
+    color: var(--text-color);
+}
+
+.form-container {
+    background-color: var(--background-color);
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 2rem;
+    width: 100%;
+    max-width: 1000px;
+    margin: 1rem auto;
+}
+
+.form-container h1 {
+    text-align: center;
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+}
+
+.form-container h3 {
+    text-align: center;
+    color: var(--text-color);
+    margin-bottom: 1.5rem;
 }

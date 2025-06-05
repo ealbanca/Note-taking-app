@@ -17,6 +17,7 @@ modalBody.className = 'modal-body';
 modalContainer.appendChild(closeButton);
 modalContainer.appendChild(modalTitle);
 modalContainer.appendChild(modalBody);
+
 // Create a form container
 var formContainer = document.createElement('div');
 formContainer.className = 'form-container';
