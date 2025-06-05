@@ -29,6 +29,7 @@ note.name = 'note';
 note.id = 'note';
 note.cols = 30;
 note.rows = 10;
+note.placeholder = 'Write your note here...';
 form.appendChild(note);
 
 // Append form to form container
