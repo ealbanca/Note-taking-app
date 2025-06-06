@@ -1,28 +1,4 @@
 // Create a modal container (for the pop up window when clicking on a existing note)
-var modalContainer = document.createElement('div');
-modalContainer.className = 'modal-container';
-//Create a modal element
-var modal = document.createElement('div');
-modal.className = 'modal';
-//button inside the modal to close it
-var closeButton = document.createElement('button');
-closeButton.textContent = '✕';
-closeButton.addEventListener('click', function () {
-    modalContainer.style.display = 'none';
-});
-//title of the modal
-var modalTitle = document.createElement('h2');
-modalTitle.className = 'modal-title';
-modalTitle.textContent = 'Title here';
-//added modal body
-var modalBody = document.createElement('p');
-modalBody.className = 'modal-body';
-modalBody.textContent = 'This is where the note content will be displayed.';
-// Append elements to modal container
-modal.appendChild(closeButton);
-modal.appendChild(modalTitle);
-modal.appendChild(modalBody);
-modalContainer.appendChild(modal);
 // Create a form container
 var formContainer = document.createElement('div');
 formContainer.className = 'form-container';
@@ -83,7 +59,43 @@ form.appendChild(submitButton);
 formContainer.appendChild(form);
 //Create a note container to display existing notes
 var noteContainer = document.createElement('div');
-noteContainer.className = 'note-container';
+noteContainer.className = 'note-container'; // Event listener for the view note button
+noteContainer.addEventListener('click', function (e) {
+    if (e.target.classList.contains('view-button')) {
+        var currentNote = e.target.closest('.note');
+        if (currentNote) {
+            var titleElem = currentNote.querySelector('.note-title');
+            var bodyElem = currentNote.querySelector('.note-body');
+            if (titleElem && bodyElem) {
+                var currentTitle = titleElem.textContent;
+                var currentBody = bodyElem.textContent;
+                activateNoteModal(currentTitle, currentBody);
+            }
+        }
+    }
+});
+var modalContainer = document.createElement('div');
+modalContainer.className = 'modal-container';
+//Create a modal element
+var modal = document.createElement('div');
+modal.className = 'modal';
+//button inside the modal to close it
+var closeButton = document.createElement('button');
+closeButton.textContent = '✕';
+closeButton.addEventListener('click', function () {
+    modalContainer.style.display = 'none';
+});
+//title of the modal
+var modalTitle = document.createElement('h2');
+modalTitle.className = 'modal-title';
+//added modal body
+var modalBody = document.createElement('p');
+modalBody.className = 'modal-body';
+// Append elements to modal container
+modal.appendChild(closeButton);
+modal.appendChild(modalTitle);
+modal.appendChild(modalBody);
+modalContainer.appendChild(modal);
 // Add modal, form container, and note container to document body
 document.body.appendChild(modalContainer);
 document.body.appendChild(formContainer);
@@ -102,7 +114,7 @@ function addNewNoteToContainer(note) {
     // Create a note element
     var noteElement = document.createElement('div');
     noteElement.classList.add('note');
-    noteElement.innerHTML = "\n    <span hidden>".concat(note.id, "</span>\n    <h2 class=\"note-title\">").concat(note.title, "</h2>\n    <p class=\"note-body\">").concat(note.body, "</p>\n    <div class='note-buttons'>\n    <button class=\"view-button\">View Details</button>\n    <button class=\"delete-button\">Delete</button>\n    </div>\n\n    ");
+    noteElement.innerHTML = "\n    <span hidden>".concat(note.id, "</span>\n    <h2 class=\"note-title\">").concat(note.title, "</h2>\n    <p class=\"note-body\">").concat(note.body, "</p>\n    <div class='note-buttons'>\n    <button class=\"view-button\">View Note</button>\n    <button class=\"delete-button\">Delete Note</button>\n    </div>\n\n    ");
     //append the note element to the note container
     noteContainer.appendChild(noteElement);
     // Add click event to open modal
@@ -111,4 +123,14 @@ function addNewNoteToContainer(note) {
         modalBody.textContent = note.body;
         modalContainer.style.display = 'flex';
     });
+}
+// Function to activate the note modal
+function activateNoteModal(title, body) {
+    var modalTitle = document.querySelector('.modal-title');
+    var modalBody = document.querySelector('.modal-body');
+    if (modalTitle && modalBody) {
+        modalTitle.textContent = title;
+        modalBody.textContent = body;
+        modalContainer.classList.add('active');
+    }
 }
