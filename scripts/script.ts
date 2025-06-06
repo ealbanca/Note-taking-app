@@ -51,6 +51,8 @@ form.addEventListener('submit', (e) => {
     // Validate input
     if (title.length > 0 && body.length > 0) {
         const newNote = new Note(title, body);
+        addNewNoteToContainer(newNote);
+        // Clear the input fields after adding the note
         titleInput.value = '';
         note.value = '';
     }
@@ -134,16 +136,6 @@ function addNewNoteToContainer(note) {
     //append the note element to the note container
     noteContainer.appendChild(noteElement);
 
-    // Create a title element for the note
-    const noteTitle = document.createElement('h3');
-    noteTitle.textContent = note.title;
-    noteElement.appendChild(noteTitle);
-
-    // Create a body element for the note
-    const noteBody = document.createElement('p');
-    noteBody.textContent = note.body;
-    noteElement.appendChild(noteBody);
-
     // Add click event to open modal
     noteElement.addEventListener('click', () => {
         modalTitle.textContent = note.title;
@@ -151,6 +143,4 @@ function addNewNoteToContainer(note) {
         modalContainer.style.display = 'flex';
     });
 
-    // Append the new note to the note container
-    noteContainer.appendChild(noteElement);
 }
