@@ -130,6 +130,10 @@ body {
     color: var(--text-color);
     flex-grow: 1;
     text-align: center;
+    word-break: break-word;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-height: 8em;
 }
 
 .note button {
@@ -167,16 +171,19 @@ body {
     bottom: 0;
     right: 0;
     place-items: center;
+    z-index: 1000;
 }
 
 .modal {
     max-width: 500px;
-    max-height: 80vh;
+    max-height: 500px;
     overflow: auto;
     background-color: white;
     border: 3px solid var(--primary-color);
     padding: 2rem;
     position: relative;
+    word-break: break-word;
+    border-radius: 8px;
 }
 
 .modal h2 {
