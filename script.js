@@ -10,9 +10,11 @@ closeButton.addEventListener('click', function () {
 //title of the modal
 var modalTitle = document.createElement('h2');
 modalTitle.className = 'modal-title';
+modalTitle.textContent = 'Title here';
 //added modal body
 var modalBody = document.createElement('p');
 modalBody.className = 'modal-body';
+modalBody.textContent = 'This is where the note content will be displayed.';
 // Append elements to modal container
 modalContainer.appendChild(closeButton);
 modalContainer.appendChild(modalTitle);

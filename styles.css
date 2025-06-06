@@ -98,3 +98,11 @@ body {
 .note-form button:hover {
     background-color: #357ABD;
 }
+
+.note-container {
+    max-width: 1000px;
+    margin: 2rem auto 1rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-gap: 1.5rem;
+}
