@@ -137,7 +137,7 @@ document.body.appendChild(noteContainer);
 
 
 // Create class constructor for Note
-class Note {
+export class Note {
     public id: number;
     public title: string;
     public body: string;
