@@ -17,7 +17,6 @@ modalBody.className = 'modal-body';
 modalContainer.appendChild(closeButton);
 modalContainer.appendChild(modalTitle);
 modalContainer.appendChild(modalBody);
-
 // Create a form container
 var formContainer = document.createElement('div');
 formContainer.className = 'form-container';
@@ -46,6 +45,11 @@ note.cols = 30;
 note.rows = 10;
 note.placeholder = 'Write your note here...';
 form.appendChild(note);
+// Create a submit button
+var submitButton = document.createElement('button');
+submitButton.textContent = 'Add Note';
+submitButton.type = 'submit';
+form.appendChild(submitButton);
 // Append form to form container
 formContainer.appendChild(form);
 //Create a note container to display existing notes

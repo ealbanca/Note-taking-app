@@ -52,6 +52,12 @@ note.rows = 10;
 note.placeholder = 'Write your note here...';
 form.appendChild(note);
 
+// Create a submit button
+const submitButton = document.createElement('button');
+submitButton.textContent = 'Add Note';
+submitButton.type = 'submit';
+form.appendChild(submitButton);
+
 // Append form to form container
 formContainer.appendChild(form);
 
