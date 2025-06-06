@@ -149,14 +149,6 @@ function addNewNoteToContainer(note) {
     `;
     //append the note element to the note container
     noteContainer.appendChild(noteElement);
-
-    // Add click event to open modal
-    noteElement.addEventListener('click', () => {
-        modalTitle.textContent = note.title;
-        modalBody.textContent = note.body;
-        modalContainer.style.display = 'grid';
-    });
-
 }
 
 // Function to activate the note modal
@@ -166,7 +158,7 @@ function activateNoteModal(title, body) {
     if (modalTitle && modalBody) {
         modalTitle.textContent = title;
         modalBody.textContent = body;
-        modalContainer.classList.add('active');
+        modalContainer.style.display = 'grid';
     }
 }
 
