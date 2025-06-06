@@ -121,7 +121,7 @@ function addNewNoteToContainer(note) {
     noteElement.addEventListener('click', function () {
         modalTitle.textContent = note.title;
         modalBody.textContent = note.body;
-        modalContainer.style.display = 'flex';
+        modalContainer.style.display = 'grid';
     });
 }
 // Function to activate the note modal
