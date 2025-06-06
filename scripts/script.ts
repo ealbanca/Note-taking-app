@@ -25,6 +25,7 @@ form.addEventListener('submit', (e) => {
     if (title.length > 0 && body.length > 0) {
         const newNote = new Note(title, body);
         addNewNoteToContainer(newNote);
+        addNoteToLocalStorage(newNote);
         // Clear the input fields after adding the note
         titleInput.value = '';
         note.value = '';
@@ -94,6 +95,10 @@ noteContainer.addEventListener('click', (e) => {
         showAlert('Note deleted successfully', 'remove');
         if (currentNote) {
             currentNote.remove();
+            const noteId = currentNote.querySelector('span')?.textContent;
+            if (noteId) {
+                removeNoteFromLocalStorage(parseFloat(noteId));
+            }
         }
     }
 });
@@ -181,8 +186,49 @@ function showAlert(message: string, alertClass: string) {
     alertDiv.textContent = message;
     form.insertAdjacentElement('beforebegin', alertDiv);
 
-    // Optional: Remove alert after 3 seconds
+    // Remove alert after 3 seconds
     setTimeout(() => {
         alertDiv.remove();
     }, 3500);
 }
+
+// Function to get all notes from the local storage
+function getAllNotes() {
+    let notes;
+    if (localStorage.getItem('notes') === null) {
+        notes = [];
+    } else {
+        notes = JSON.parse(localStorage.getItem('notes') || '[]');
+    }
+    return notes;
+}
+
+
+// Function to add a note to the local storage
+function addNoteToLocalStorage(note) {
+    const notes = getAllNotes();
+    notes.push(note);
+    localStorage.setItem('notes', JSON.stringify(notes));
+}
+
+// Function to display all notes from local storage on page load
+function displayNotes() {
+    const notes = getAllNotes();
+    notes.forEach((note) => {
+        addNewNoteToContainer(note);
+    });
+}
+
+//function to remove a note from local storage
+function removeNoteFromLocalStorage(noteId) {
+    const notes = getAllNotes();
+    notes.forEach((note, index) => {
+        if (note.id === noteId) {
+            notes.splice(index, 1);
+        }
+    });
+    localStorage.setItem('notes', JSON.stringify(notes));
+}
+
+// Call the displayNotes function to show existing notes on page load
+document.addEventListener('DOMContentLoaded', displayNotes);

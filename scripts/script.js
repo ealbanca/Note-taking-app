@@ -21,6 +21,7 @@ form.addEventListener('submit', function (e) {
     if (title.length > 0 && body.length > 0) {
         var newNote = new Note(title, body);
         addNewNoteToContainer(newNote);
+        addNoteToLocalStorage(newNote);
         // Clear the input fields after adding the note
         titleInput.value = '';
         note.value = '';
@@ -67,6 +68,7 @@ formContainer.appendChild(form);
 var noteContainer = document.createElement('div');
 noteContainer.className = 'note-container'; // Event listener for the view note button
 noteContainer.addEventListener('click', function (e) {
+    var _a;
     if (e.target.classList.contains('view-button')) {
         var currentNote = e.target.closest('.note');
         if (currentNote) {
@@ -84,6 +86,10 @@ noteContainer.addEventListener('click', function (e) {
         showAlert('Note deleted successfully', 'remove');
         if (currentNote) {
             currentNote.remove();
+            var noteId = (_a = currentNote.querySelector('span')) === null || _a === void 0 ? void 0 : _a.textContent;
+            if (noteId) {
+                removeNoteFromLocalStorage(parseFloat(noteId));
+            }
         }
     }
 });
@@ -147,8 +153,44 @@ function showAlert(message, alertClass) {
     alertDiv.className = "message ".concat(alertClass);
     alertDiv.textContent = message;
     form.insertAdjacentElement('beforebegin', alertDiv);
-    // Optional: Remove alert after 3 seconds
+    // Remove alert after 3 seconds
     setTimeout(function () {
         alertDiv.remove();
     }, 3500);
 }
+// Function to get all notes from the local storage
+function getAllNotes() {
+    var notes;
+    if (localStorage.getItem('notes') === null) {
+        notes = [];
+    }
+    else {
+        notes = JSON.parse(localStorage.getItem('notes') || '[]');
+    }
+    return notes;
+}
+// Function to add a note to the local storage
+function addNoteToLocalStorage(note) {
+    var notes = getAllNotes();
+    notes.push(note);
+    localStorage.setItem('notes', JSON.stringify(notes));
+}
+// Function to display all notes from local storage on page load
+function displayNotes() {
+    var notes = getAllNotes();
+    notes.forEach(function (note) {
+        addNewNoteToContainer(note);
+    });
+}
+//function to remove a note from local storage
+function removeNoteFromLocalStorage(noteId) {
+    var notes = getAllNotes();
+    notes.forEach(function (note, index) {
+        if (note.id === noteId) {
+            notes.splice(index, 1);
+        }
+    });
+    localStorage.setItem('notes', JSON.stringify(notes));
+}
+// Call the displayNotes function to show existing notes on page load
+document.addEventListener('DOMContentLoaded', displayNotes);
