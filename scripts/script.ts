@@ -51,6 +51,8 @@ form.addEventListener('submit', (e) => {
     // Validate input
     if (title.length > 0 && body.length > 0) {
         const newNote = new Note(title, body);
+        titleInput.value = '';
+        note.value = '';
         // You can add code here to display or store the note
     }
 });
@@ -102,6 +104,7 @@ document.body.appendChild(formContainer);
 document.body.appendChild(noteContainer);
 
 
+// Create class constructor for Note
 class Note {
     public id: number;
     public title: string;

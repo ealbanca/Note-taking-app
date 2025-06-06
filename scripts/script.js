@@ -44,6 +44,8 @@ form.addEventListener('submit', function (e) {
     // Validate input
     if (title.length > 0 && body.length > 0) {
         var newNote = new Note(title, body);
+        titleInput.value = '';
+        note.value = '';
         // You can add code here to display or store the note
     }
 });
@@ -85,6 +87,7 @@ noteContainer.className = 'note-container';
 document.body.appendChild(modalContainer);
 document.body.appendChild(formContainer);
 document.body.appendChild(noteContainer);
+// Create class constructor for Note
 var Note = /** @class */ (function () {
     function Note(title, body) {
         this.title = title;
