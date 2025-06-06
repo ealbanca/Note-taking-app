@@ -49,7 +49,7 @@ body {
 }
 
 .message.success {
-    background-color: var(--secondary-color);
+    background-color: green;
     color: white;
 }
 

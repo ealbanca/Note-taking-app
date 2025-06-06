@@ -24,6 +24,12 @@ form.addEventListener('submit', function (e) {
         // Clear the input fields after adding the note
         titleInput.value = '';
         note.value = '';
+        // Show success message
+        showAlert('Note added successfully', 'success');
+    }
+    else {
+        // Show error message
+        showAlert('Please fill in both fields', 'error');
     }
 });
 // Create a label for the note title input
@@ -75,6 +81,7 @@ noteContainer.addEventListener('click', function (e) {
     }
     if (e.target.classList.contains('delete-button')) {
         var currentNote = e.target.closest('.note');
+        showAlert('Note deleted successfully', 'remove');
         if (currentNote) {
             currentNote.remove();
         }
@@ -133,4 +140,15 @@ function activateNoteModal(title, body) {
         modalBody.textContent = body;
         modalContainer.style.display = 'grid';
     }
+}
+// Function to show alert messages
+function showAlert(message, alertClass) {
+    var alertDiv = document.createElement('div');
+    alertDiv.className = "message ".concat(alertClass);
+    alertDiv.textContent = message;
+    form.insertAdjacentElement('beforebegin', alertDiv);
+    // Optional: Remove alert after 3 seconds
+    setTimeout(function () {
+        alertDiv.remove();
+    }, 4000);
 }

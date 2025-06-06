@@ -28,6 +28,11 @@ form.addEventListener('submit', (e) => {
         // Clear the input fields after adding the note
         titleInput.value = '';
         note.value = '';
+        // Show success message
+        showAlert('Note added successfully', 'success');
+    } else {
+        // Show error message
+        showAlert('Please fill in both fields', 'error');
     }
 });
 
@@ -86,6 +91,7 @@ noteContainer.addEventListener('click', (e) => {
         }
     } if ((e.target as HTMLElement).classList.contains('delete-button')) {
         const currentNote = (e.target as HTMLElement).closest('.note');
+        showAlert('Note deleted successfully', 'remove');
         if (currentNote) {
             currentNote.remove();
         }
@@ -168,3 +174,15 @@ function activateNoteModal(title, body) {
     }
 }
 
+// Function to show alert messages
+function showAlert(message: string, alertClass: string) {
+    const alertDiv = document.createElement('div');
+    alertDiv.className = `message ${alertClass}`;
+    alertDiv.textContent = message;
+    form.insertAdjacentElement('beforebegin', alertDiv);
+
+    // Optional: Remove alert after 3 seconds
+    setTimeout(() => {
+        alertDiv.remove();
+    }, 4000);
+}
