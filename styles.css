@@ -71,6 +71,11 @@ body {
     width: 100%;
 }
 
+.note-form label {
+    font-weight: 600;
+    color: var(--text-color);
+}
+
 .note-form input,
 .note-form textarea {
     width: 100%;
