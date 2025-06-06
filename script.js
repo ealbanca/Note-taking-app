@@ -31,12 +31,22 @@ formContainer.appendChild(noteTitle);
 // Create a form element
 var form = document.createElement('form');
 form.className = 'note-form';
+// Create a label for the note title input
+var titleLabel = document.createElement('label');
+titleLabel.htmlFor = 'title';
+titleLabel.textContent = 'Title';
+form.appendChild(titleLabel);
 // Create a text input for the note title
 var titleInput = document.createElement('input');
 titleInput.type = 'text';
 titleInput.id = 'title';
 titleInput.placeholder = 'Enter a Note Title';
 form.appendChild(titleInput);
+// Create a label for the note input
+var noteLabel = document.createElement('label');
+noteLabel.htmlFor = 'note';
+noteLabel.textContent = 'Note';
+form.appendChild(noteLabel);
 // Create a note input
 var note = document.createElement('textarea');
 note.name = 'note';
