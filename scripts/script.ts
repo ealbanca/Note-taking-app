@@ -53,7 +53,6 @@ form.addEventListener('submit', (e) => {
         const newNote = new Note(title, body);
         titleInput.value = '';
         note.value = '';
-        // You can add code here to display or store the note
     }
 });
 
@@ -115,4 +114,43 @@ class Note {
         this.body = body;
         this.id = Math.random();
     }
+}
+
+// Function to add a new note to the note container
+function addNewNoteToContainer(note) {
+    // Create a note element
+    const noteElement = document.createElement('div');
+    noteElement.classList.add('note');
+    noteElement.innerHTML = `
+    <span hidden>${note.id}</span>
+    <h2 class="note-title">${note.title}</h2>
+    <p class="note-body">${note.body}</p>
+    <div class='note-buttons'>
+    <button class="view-button">View Details</button>
+    <button class="delete-button">Delete</button>
+    </div>
+
+    `;
+    //append the note element to the note container
+    noteContainer.appendChild(noteElement);
+
+    // Create a title element for the note
+    const noteTitle = document.createElement('h3');
+    noteTitle.textContent = note.title;
+    noteElement.appendChild(noteTitle);
+
+    // Create a body element for the note
+    const noteBody = document.createElement('p');
+    noteBody.textContent = note.body;
+    noteElement.appendChild(noteBody);
+
+    // Add click event to open modal
+    noteElement.addEventListener('click', () => {
+        modalTitle.textContent = note.title;
+        modalBody.textContent = note.body;
+        modalContainer.style.display = 'flex';
+    });
+
+    // Append the new note to the note container
+    noteContainer.appendChild(noteElement);
 }
