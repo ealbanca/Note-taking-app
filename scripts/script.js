@@ -7,9 +7,9 @@ var heading = document.createElement('h1');
 heading.textContent = 'Note Taking App';
 formContainer.appendChild(heading);
 // Add a new note title
-var noteTitle = document.createElement('h3');
-noteTitle.textContent = 'Add a New Note';
-formContainer.appendChild(noteTitle);
+var myName = document.createElement('h3');
+myName.textContent = 'By Hared Albancando Robles';
+formContainer.appendChild(myName);
 // Create a form element
 var form = document.createElement('form');
 form.className = 'note-form';
@@ -150,5 +150,5 @@ function showAlert(message, alertClass) {
     // Optional: Remove alert after 3 seconds
     setTimeout(function () {
         alertDiv.remove();
-    }, 4000);
+    }, 3500);
 }
