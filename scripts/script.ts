@@ -82,6 +82,12 @@ noteContainer.addEventListener('click', (e) => {
                 const currentBody = bodyElem.textContent;
                 activateNoteModal(currentTitle, currentBody);
             }
+
+        }
+    } if ((e.target as HTMLElement).classList.contains('delete-button')) {
+        const currentNote = (e.target as HTMLElement).closest('.note');
+        if (currentNote) {
+            currentNote.remove();
         }
     }
 });

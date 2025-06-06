@@ -73,6 +73,12 @@ noteContainer.addEventListener('click', function (e) {
             }
         }
     }
+    if (e.target.classList.contains('delete-button')) {
+        var currentNote = e.target.closest('.note');
+        if (currentNote) {
+            currentNote.remove();
+        }
+    }
 });
 var modalContainer = document.createElement('div');
 modalContainer.className = 'modal-container';
@@ -117,12 +123,6 @@ function addNewNoteToContainer(note) {
     noteElement.innerHTML = "\n    <span hidden>".concat(note.id, "</span>\n    <h2 class=\"note-title\">").concat(note.title, "</h2>\n    <p class=\"note-body\">").concat(note.body, "</p>\n    <div class='note-buttons'>\n    <button class=\"view-button\">View Note</button>\n    <button class=\"delete-button\">Delete Note</button>\n    </div>\n\n    ");
     //append the note element to the note container
     noteContainer.appendChild(noteElement);
-    // Add click event to open modal
-    /* noteElement.addEventListener('click', () => {
-         modalTitle.textContent = note.title;
-         modalBody.textContent = note.body;
-         modalContainer.style.display = 'flex';
-     });*/
 }
 // Function to activate the note modal
 function activateNoteModal(title, body) {
