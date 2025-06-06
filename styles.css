@@ -7,7 +7,6 @@
 
 :root {
     --primary-color: #4a90e2;
-    --secondary-color: #50e3c2;
     --background-color: #f5f7fa;
     --text-color: #525050;
     --border-color: #e0e0e0;
@@ -92,6 +91,10 @@ body {
     padding: 0.75rem;
     border-radius: 4px;
     cursor: pointer;
-    font-size: 1rem;
+    font-size: 1.2rem;
     max-width: 200px;
+}
+
+.note-form button:hover {
+    background-color: #357ABD;
 }
