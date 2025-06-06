@@ -1,24 +1,21 @@
-
 // Create a modal container (for the pop up window when clicking on a existing note)
-const modalContainer = document.createElement('div');
+var modalContainer = document.createElement('div');
 modalContainer.className = 'modal-container';
-
 //Create a modal element
-const modal = document.createElement('div');
+var modal = document.createElement('div');
 modal.className = 'modal';
-
 //button inside the modal to close it
-const closeButton = document.createElement('button');
+var closeButton = document.createElement('button');
 closeButton.textContent = '✕';
-closeButton.addEventListener('click', () => {
+closeButton.addEventListener('click', function () {
     modalContainer.style.display = 'none';
 });
 //title of the modal
-const modalTitle = document.createElement('h2');
+var modalTitle = document.createElement('h2');
 modalTitle.className = 'modal-title';
 modalTitle.textContent = 'Title here';
 //added modal body
-const modalBody = document.createElement('p');
+var modalBody = document.createElement('p');
 modalBody.className = 'modal-body';
 modalBody.textContent = 'This is where the note content will be displayed.';
 // Append elements to modal container
@@ -26,90 +23,73 @@ modal.appendChild(closeButton);
 modal.appendChild(modalTitle);
 modal.appendChild(modalBody);
 modalContainer.appendChild(modal);
-
 // Create a form container
-const formContainer = document.createElement('div');
+var formContainer = document.createElement('div');
 formContainer.className = 'form-container';
-
 // Create title of Note Taking App
-const heading = document.createElement('h1');
+var heading = document.createElement('h1');
 heading.textContent = 'Note Taking App';
 formContainer.appendChild(heading);
-
 // Add a new note title
-const noteTitle = document.createElement('h3');
+var noteTitle = document.createElement('h3');
 noteTitle.textContent = 'Add a New Note';
 formContainer.appendChild(noteTitle);
-
 // Create a form element
-const form = document.createElement('form');
+var form = document.createElement('form');
 form.className = 'note-form';
-form.addEventListener('submit', (e) => {
+form.addEventListener('submit', function (e) {
     e.preventDefault();
-    const title = titleInput.value;
-    const body = note.value;
-
+    var title = titleInput.value;
+    var body = note.value;
     // Validate input
     if (title.length > 0 && body.length > 0) {
-        const newNote = new Note(title, body);
+        var newNote = new Note(title, body);
         // You can add code here to display or store the note
     }
 });
-
 // Create a label for the note title input
-const titleLabel = document.createElement('label');
+var titleLabel = document.createElement('label');
 titleLabel.htmlFor = 'title';
 titleLabel.textContent = 'Title';
 form.appendChild(titleLabel);
-
 // Create a text input for the note title
-const titleInput = document.createElement('input');
+var titleInput = document.createElement('input');
 titleInput.type = 'text';
 titleInput.id = 'title';
 titleInput.placeholder = 'Enter a Note Title';
 form.appendChild(titleInput);
-
 // Create a label for the note input
-const noteLabel = document.createElement('label');
+var noteLabel = document.createElement('label');
 noteLabel.htmlFor = 'note';
 noteLabel.textContent = 'Note';
 form.appendChild(noteLabel);
-
 // Create a note input
-const note = document.createElement('textarea');
+var note = document.createElement('textarea');
 note.name = 'note';
 note.id = 'note';
 note.cols = 30;
 note.rows = 10;
 note.placeholder = 'Write your note here...';
 form.appendChild(note);
-
 // Create a submit button
-const submitButton = document.createElement('button');
+var submitButton = document.createElement('button');
 submitButton.textContent = 'Add Note';
 submitButton.type = 'submit';
 form.appendChild(submitButton);
-
 // Append form to form container
 formContainer.appendChild(form);
-
 //Create a note container to display existing notes
-const noteContainer = document.createElement('div');
+var noteContainer = document.createElement('div');
 noteContainer.className = 'note-container';
-
 // Add modal, form container, and note container to document body
 document.body.appendChild(modalContainer);
 document.body.appendChild(formContainer);
 document.body.appendChild(noteContainer);
-
-class Note {
-    public id: number;
-    public title: string;
-    public body: string;
-
-    constructor(title: string, body: string) {
+var Note = /** @class */ (function () {
+    function Note(title, body) {
         this.title = title;
         this.body = body;
         this.id = Math.random();
     }
-}
+    return Note;
+}());
