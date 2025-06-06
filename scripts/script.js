@@ -1,4 +1,3 @@
-// Create a modal container (for the pop up window when clicking on a existing note)
 // Create a form container
 var formContainer = document.createElement('div');
 formContainer.className = 'form-container';
@@ -6,7 +5,7 @@ formContainer.className = 'form-container';
 var heading = document.createElement('h1');
 heading.textContent = 'Note Taking App';
 formContainer.appendChild(heading);
-// Add a new note title
+// Added my name to the form
 var myName = document.createElement('h3');
 myName.textContent = 'By Hared Albancando Robles';
 formContainer.appendChild(myName);
@@ -25,11 +24,11 @@ form.addEventListener('submit', function (e) {
         // Clear the input fields after adding the note
         titleInput.value = '';
         note.value = '';
-        // Show success message
+        // Show success message alert
         showAlert('Note added successfully', 'success');
     }
     else {
-        // Show error message
+        // Show error message alert
         showAlert('Please fill in both fields', 'error');
     }
 });
@@ -66,7 +65,8 @@ form.appendChild(submitButton);
 formContainer.appendChild(form);
 //Create a note container to display existing notes
 var noteContainer = document.createElement('div');
-noteContainer.className = 'note-container'; // Event listener for the view note button
+noteContainer.className = 'note-container';
+// Event listener for the view note button
 noteContainer.addEventListener('click', function (e) {
     var _a;
     if (e.target.classList.contains('view-button')) {
@@ -93,12 +93,13 @@ noteContainer.addEventListener('click', function (e) {
         }
     }
 });
+// Create a modal container to display note details
 var modalContainer = document.createElement('div');
 modalContainer.className = 'modal-container';
 //Create a modal element
 var modal = document.createElement('div');
 modal.className = 'modal';
-//button inside the modal to close it
+//button inside the modal to close it (span)
 var closeButton = document.createElement('button');
 closeButton.textContent = '✕';
 closeButton.addEventListener('click', function () {
@@ -153,7 +154,7 @@ function showAlert(message, alertClass) {
     alertDiv.className = "message ".concat(alertClass);
     alertDiv.textContent = message;
     form.insertAdjacentElement('beforebegin', alertDiv);
-    // Remove alert after 3 seconds
+    // Remove alert after 3.5 seconds
     setTimeout(function () {
         alertDiv.remove();
     }, 3500);
@@ -192,5 +193,5 @@ function removeNoteFromLocalStorage(noteId) {
     });
     localStorage.setItem('notes', JSON.stringify(notes));
 }
-// Call the displayNotes function to show existing notes on page load
+// Call the displayNotes function to show existing notes saved on local storage
 document.addEventListener('DOMContentLoaded', displayNotes);
