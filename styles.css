@@ -106,3 +106,45 @@ body {
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     grid-gap: 1.5rem;
 }
+
+.modal-container {
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.5);
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    display: grid;
+    place-items: center;
+}
+
+.modal {
+    max-width: 500px;
+    max-height: 80vh;
+    overflow: auto;
+    background-color: white;
+    border: 3px solid var(--primary-color);
+    padding: 2rem;
+    position: relative;
+}
+
+.modal h2 {
+    text-align: center;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    max-width: 80%;
+}
+
+.modal button {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background-color: transparent;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.modal button:hover {
+    background-color: var(--primary-color);
+}

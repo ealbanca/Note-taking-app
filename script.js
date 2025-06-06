@@ -1,6 +1,9 @@
 // Create a modal container (for the pop up window when clicking on a existing note)
 var modalContainer = document.createElement('div');
-modalContainer.className = 'modal';
+modalContainer.className = 'modal-container';
+//Create a modal element
+var modal = document.createElement('div');
+modal.className = 'modal';
 //button inside the modal to close it
 var closeButton = document.createElement('button');
 closeButton.textContent = '✕';
@@ -16,9 +19,10 @@ var modalBody = document.createElement('p');
 modalBody.className = 'modal-body';
 modalBody.textContent = 'This is where the note content will be displayed.';
 // Append elements to modal container
-modalContainer.appendChild(closeButton);
-modalContainer.appendChild(modalTitle);
-modalContainer.appendChild(modalBody);
+modal.appendChild(closeButton);
+modal.appendChild(modalTitle);
+modal.appendChild(modalBody);
+modalContainer.appendChild(modal);
 // Create a form container
 var formContainer = document.createElement('div');
 formContainer.className = 'form-container';
