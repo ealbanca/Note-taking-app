@@ -19,3 +19,7 @@ Here is a short video explaining how the Note Taking App works, uploaded on YouT
 * [Jest.io](https://jestjs.io/docs/getting-started)
 * [TypeScript Tutorial](https://www.typescripttutorial.net/)
 * [W3 Schools](https://www.w3schools.com/typescript/)
+
+* # Future Work
+- Connect The TypeScript code correctly to Jest
+- Fix and add more Jest tests for the create new note function, the add new function, and the remove function. 
