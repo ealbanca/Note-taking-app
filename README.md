@@ -4,7 +4,7 @@ This TypeScript program implements a browser-based note-taking application that 
 
 Here is a short video explaining how the Note Taking App works, uploaded on YouTube 
 
-[To Do List Demo Video](https://youtu.be/Uz0fU620DnU)
+[Note Taking App Demo Video](https://youtu.be/Q7dNhjkcpTY)
 
 # Development Environment
 
