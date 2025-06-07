@@ -17,5 +17,5 @@ Here is a short video explaining how the Note Taking App works, uploaded on YouT
 # Useful Websites
 
 * [Jest.io](https://jestjs.io/docs/getting-started)
-* [TypeScript Tutorial]([https://javascript.info/](https://www.typescripttutorial.net/))
-* [W3 Schools]([https://www.w3schools.com/js/DEFAULT.asp](https://www.w3schools.com/typescript/))
+* [TypeScript Tutorial](https://www.typescripttutorial.net/)
+* [W3 Schools]([https://www.w3schools.com/js/DEFAULT.asp](https://www.w3schools.com/typescript/)
